@@ -65,6 +65,19 @@ const jsonLd = [
         <h1 style="font-size: clamp(1.5rem, 5vw, 2.2rem);">{lesson.title}</h1>
         <p>{lesson.summary}</p>
 
+        {lesson.chapters && (
+          <div class="panel" style="margin-bottom: 14px;">
+            <h2>In this video</h2>
+            <ul class="chapters">
+              {lesson.chapters.map((c) => {
+                const [time, ...rest] = c.split(' ');
+                return <li><span class="time">{time}</span> {rest.join(' ')}</li>;
+              })}
+            </ul>
+            <p class="note" style="margin: 8px 0 0;">Use the video's own chapters to jump to the part you need.</p>
+          </div>
+        )}
+
         <div class="panel" style="margin-bottom: 14px;">
           <h2>Focus on</h2>
           <ul>{lesson.focus.map((f) => <li>{f}</li>)}</ul>

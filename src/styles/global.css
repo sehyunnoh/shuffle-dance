@@ -141,6 +141,9 @@ a.card:hover { transform: translateY(-3px); border-color: var(--pink); }
 .panel h2 { font-size: 1.1rem; }
 .panel ul { margin: 0; padding-left: 1.2em; }
 .panel li { margin-bottom: .4em; }
+.panel ul.chapters { list-style: none; padding: 0; }
+.chapters li { margin-bottom: .25em; }
+.chapters .time { display: inline-block; min-width: 3.2em; color: var(--cyan); font-weight: 800; font-variant-numeric: tabular-nums; }
 .plan { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; text-align: center; margin-bottom: 8px; }
 .plan div { background: var(--bg-2); border-radius: 12px; padding: 10px 4px; }
 .plan strong { display: block; font-family: var(--display); font-size: 1.4rem; color: var(--cyan); }

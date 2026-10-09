@@ -24,6 +24,7 @@ export interface Lesson {
   focus: string[];
   start?: number; // seconds
   end?: number; // seconds
+  chapters?: string[]; // "m:ss Label", copied from the video's own chapters or timestamps
 }
 
 export const VIEWS_AS_OF = '2026-10-09';
@@ -58,8 +59,8 @@ export const levels: Level[] = [
     track: 'main',
     number: 3,
     name: 'Cutting Shapes',
-    tagline: 'The lighter, more technical style',
-    goal: 'Learn the core cutting shapes moves, like the Charleston.',
+    tagline: 'Charleston, criss cross and more',
+    goal: 'Learn the core cutting shapes moves, like the Charleston and the criss cross.',
   },
   {
     id: 'flow-routine',
@@ -74,11 +75,14 @@ export const levels: Level[] = [
     track: 'melbourne',
     number: null,
     name: 'Melbourne Track',
-    tagline: 'The hardstyle-flavored original',
+    tagline: 'The original style from Melbourne',
     goal: 'Pick up the basics of the Melbourne shuffle. Best after Level 2.',
   },
 ];
 
+// Summaries, focus points and chapters below were checked against each video's own chapters,
+// timestamps or description (and the full transcript for the Marbiik running man and T-step videos).
+// Videos with no chapters or timestamps (marked in comments) only have generic text.
 export const lessons: Lesson[] = [
   // Level 0
   {
@@ -88,12 +92,13 @@ export const lessons: Lesson[] = [
     videoId: '1TVgrMtwG9M',
     channel: 'Tori Nishino',
     minutes: 19,
-    summary: 'A start-to-finish overview of shuffling. Watch it once through to see where this journey is heading.',
+    summary: 'A full beginner walkthrough covering the running man, kickbacks, Polly Pocket, a Charleston variation and the T-step. Watch it through once to see where the path leads.',
     focus: [
-      'Notice the two core moves: the running man and the T-step.',
-      'Do not try to master anything today. Just try each move once.',
+      'Do not try to master everything today. Try each move once.',
+      'Note which move feels hardest. You will come back to each one in the next levels.',
       'Pick a slow house or EDM track around 120 to 128 BPM for practice.',
     ],
+    chapters: ['0:31 The running man', '5:41 Kickbacks', '8:05 Polly Pocket', '12:27 Charleston variation', '15:25 The T-step'],
   },
   {
     slug: 'ultimate-beginner-tutorial',
@@ -102,12 +107,13 @@ export const lessons: Lesson[] = [
     videoId: '5xOAJA598uk',
     channel: 'Tori Nishino',
     minutes: 12,
-    summary: 'A shorter beginner tutorial on the foundational moves. A good second pass before diving into Level 1.',
+    summary: 'A shorter beginner tutorial that breaks down five foundational moves: running man, Polly Pocket, kickbacks, Charleston and T-step.',
     focus: [
-      'Practice in front of a mirror, and wear shoes that slide on your floor.',
-      'Keep your upper body relaxed and your steps light.',
-      'Count steady beats out loud while you move.',
+      'Compare it with the previous lesson. The same moves, a different pace and explanation.',
+      'Try the running man section first, since it comes up in every level.',
+      'Practice in front of a mirror and wear shoes that slide on your floor.',
     ],
+    chapters: ['0:54 Running man', '3:48 Polly Pocket', '6:20 Kickbacks', '7:28 Charleston', '9:23 T-step'],
   },
   {
     slug: 'learn-to-shuffle-in-5-minutes',
@@ -116,27 +122,29 @@ export const lessons: Lesson[] = [
     videoId: 'pddp8OLi7lo',
     channel: 'pigmie',
     minutes: 6,
-    summary: 'A very fast intro that has been watched over 14 million times. Use it as a quick confidence boost.',
+    summary: 'A very fast intro to shuffling, then the basic running man by following along. It has been watched over 14 million times.',
     focus: [
-      'Treat this as a taste test, not a lesson plan.',
-      'Rewatch parts you did not catch and try them slowly.',
+      'Treat it as a quick confidence boost, not a full lesson.',
+      'Follow along with the running man part, and rewatch it as many times as you need.',
     ],
+    chapters: ['0:18 How to shuffle', '2:54 Running man'],
   },
 
   // Level 1
   {
     slug: 'shuffle-basics-running-man',
     level: 'foundations',
-    title: 'Shuffle Tutorial Basics: Running Man and More',
+    title: 'Shuffle Tutorial Basics: Running Man, T-Step and Variations',
     videoId: 'Kt-Tb9gaOB8',
     channel: 'Emylee x The Shuffle Vault',
     minutes: 14,
-    summary: 'The most-watched basics tutorial in this guide. Start building the base moves here.',
+    summary: 'The two core moves, how to combine them, and a few variations. The most-watched basics tutorial in this guide.',
     focus: [
-      'Get the running man rhythm steady before adding anything else.',
-      'Do not pause between moves. Keep the beat going.',
-      'Play the video at a slower speed if it helps.',
+      'Spend the first half on the running man and the T-step separately.',
+      'Then practice combining them without stopping between moves.',
+      'Add variations only after the combination feels steady.',
     ],
+    chapters: ['0:13 The running man', '2:46 The T-step', '7:25 Combining moves', '9:32 Adding variations'],
   },
   {
     slug: 'running-man-marbiik',
@@ -145,11 +153,14 @@ export const lessons: Lesson[] = [
     videoId: 'HUOjOJvPJc8',
     channel: 'Marbiik',
     minutes: 11,
-    summary: 'A focused breakdown of the running man. Compare it with the previous lesson and keep what clicks.',
+    summary: 'A close breakdown of the running man into two positions, with notes on balance, foot placement, common mistakes and building speed.',
     focus: [
-      'Your foot has only a few places to land. Keep the placement consistent.',
-      'Listen to your shoes: the sound should land on a steady beat.',
+      'The running man is two positions repeated with each leg. The back foot goes up while the front foot comes to the middle, both at the same moment.',
+      'Keep your weight centered between your feet, point your toes forward and bend your knees a little.',
+      'If sliding is hard, hop instead of dragging your foot. It is also the easiest way to go faster.',
+      'Find a speed you can hold, then push it up little by little. Do not alternate fast and slow.',
     ],
+    chapters: ['1:02 Learning the steps', '2:57 Weight balance', '3:28 Foot placement', '4:54 Common mistakes and fixes', '6:49 Building speed and practice'],
   },
   {
     slug: 't-step-marbiik',
@@ -158,12 +169,13 @@ export const lessons: Lesson[] = [
     videoId: 'EdN8S2phxbs',
     channel: 'Marbiik',
     minutes: 8,
-    summary: 'The T-step is how you travel sideways. Learn it slowly and cleanly.',
+    summary: 'The T-step, described as the original shuffle step. It is taught as two isolated actions, a stomp and a pivot, which you then combine.',
     focus: [
-      'Your feet form a T: one foot points forward, the other sits behind it.',
-      'Pivot on the heel and toe while the other leg lifts and lowers.',
-      'Slow down until the timing is even, then speed up.',
+      'Practice the stomp on its own, then the pivot on its own, before putting them together.',
+      'Pay attention to where your weight sits during the move.',
+      'Finish by practicing how to change direction with the T-step.',
     ],
+    chapters: ['0:35 Pivot and drag technique', '1:06 Stomp isolation practice', '1:41 Pivot isolation practice', '2:13 Combining moves', '3:47 Weight placement', '4:50 Transitioning directions', '5:59 Practice tips'],
   },
   {
     slug: 'easiest-running-man',
@@ -172,11 +184,12 @@ export const lessons: Lesson[] = [
     videoId: 'EP3Q3ttFwtU',
     channel: 'Caroline Kay',
     minutes: 8,
-    summary: 'Another take on the running man for anyone still struggling. A different explanation can unlock it.',
+    summary: 'Builds up to the running man with a series of simple bounce drills. A good pick if the other running man videos felt too fast.',
     focus: [
-      'If the earlier videos felt too fast, use this one as a gentler pace.',
-      'Practice for several minutes without stopping.',
+      'Do the drills in order: jumping, hopping, alternating feet, double bounce and the up and down patterns.',
+      'Only move on to the full running man once the drills feel easy.',
     ],
+    chapters: ['0:27 Jumping', '0:59 Hopping', '1:28 Alternating feet', '1:46 Double bounce', '2:01 Up up up', '2:49 Down up up', '3:14 Down slide', '3:46 Running man'],
   },
   {
     slug: 'foundations-running-man-t-step',
@@ -185,12 +198,13 @@ export const lessons: Lesson[] = [
     videoId: 'b6075roLFmo',
     channel: 'Emylee x The Shuffle Vault',
     minutes: 29,
-    summary: 'A long, in-depth review session on both foundation moves. Plan two days for this one.',
+    summary: 'A long review session. The first half covers the running man, common mistakes, variations and upper body. The T-step starts at 15:34.',
     focus: [
+      'Day 1: running man, mistakes and variations (0:00 to 15:34).',
+      'Day 2: the T-step (15:34 onward).',
       'Pause often and repeat each part before moving on.',
-      'Day 1: running man. Day 2: T-step and linking them.',
-      'Finish by alternating both moves for a full song.',
     ],
+    chapters: ['0:36 Running man', '4:09 Common mistakes', '8:17 Variations', '13:00 Upper body', '15:34 T-step', '27:42 Outie 5000'],
   },
 
   // Level 2
@@ -201,11 +215,13 @@ export const lessons: Lesson[] = [
     videoId: 'F9wrAAAcQL4',
     channel: 'Emylee x The Shuffle Vault',
     minutes: 14,
-    summary: 'Five moves to add after the basics. Learn them one at a time.',
+    summary: 'Five moves in one video: running woman, T-step, Charleston, Polly Pocket and a basic spin. A preview of what is coming in the next levels.',
     focus: [
-      'Add one move at a time and keep it smooth.',
-      'Repeat each move 8 counts, then switch to the running man.',
+      'You already know two of these from Level 1. Use them as a warm-up.',
+      'Learn the Charleston, Polly Pocket and spin one at a time.',
+      'Link two moves together and repeat for 8 counts.',
     ],
+    chapters: ['0:05 Running woman', '3:17 T-step', '6:07 Charleston', '9:15 Polly Pocket', '11:17 Basic spin'],
   },
   {
     slug: '5-easy-footwork-steps',
@@ -214,11 +230,12 @@ export const lessons: Lesson[] = [
     videoId: 'BxOBhZBLOio',
     channel: 'Marbiik',
     minutes: 16,
-    summary: 'Five footwork steps to widen your vocabulary. Over 10 million views.',
+    summary: 'Five of the easiest footwork steps in cutting shapes: criss cross, heel toe, W-step, scissors and toe switch.',
     focus: [
-      'Learn each step on its own first, then connect two of them.',
-      'Keep your torso upright and centered.',
+      'Learn each step on its own, then connect two of them.',
+      'Spend your practice block on one or two steps, not all five in a day.',
     ],
+    chapters: ['0:16 Criss cross', '2:14 Heel toe', '4:35 W-step', '8:05 Scissors', '11:46 Toe switch'],
   },
   {
     slug: 'beginner-class-video',
@@ -227,11 +244,12 @@ export const lessons: Lesson[] = [
     videoId: 'QG0ahY7kn0Y',
     channel: 'Shaira Bhan',
     minutes: 22,
-    summary: 'A class-style session that practices the basics together. Plan a full practice day.',
+    summary: 'A recording of a live class for people new to shuffling, with sliding drills, speed and tempo drills, diagonal steps, heel work and running man variations.',
     focus: [
       'Follow along as if you were in the room.',
-      'Repeat the combo at the end until it feels automatic.',
+      'Plan two days if you want to go through it all. The sliding and tempo drills are a good first session.',
     ],
+    chapters: ['1:14 Front and back sliding', '2:30 Common sliding mistakes', '3:27 Speed and tempo drills', '4:37 Diagonal stepping', '6:45 Heel push techniques', '9:13 Incorporating the running man', '11:29 Traveling sequences', '14:40 Cross and open footwork'],
   },
   {
     slug: 'effortless-flow-combo',
@@ -240,11 +258,12 @@ export const lessons: Lesson[] = [
     videoId: '3P8FB7t0I1M',
     channel: 'Emylee x The Shuffle Vault',
     minutes: 18,
-    summary: 'A combo built for flow. Focus on staying relaxed and continuous.',
+    summary: 'A T-step based combo with tips, variations, the reverse T-step and arm movement.',
     focus: [
-      'Smoothness matters more than speed.',
-      'Run the combo to a full song without stopping.',
+      'Get the basic combo steady before adding variations.',
+      'Add the arms last, once your feet do not need your attention.',
     ],
+    chapters: ['0:49 The basics', '2:23 Tips and tricks', '8:27 Variations', '9:11 Reverse T-step', '14:50 Arms'],
   },
 
   // Level 3
@@ -255,10 +274,9 @@ export const lessons: Lesson[] = [
     videoId: 'yOanOaERq3A',
     channel: 'Emylee x The Shuffle Vault',
     minutes: 6,
-    summary: 'A short orientation to cutting shapes before the longer tutorials.',
+    summary: 'A short orientation. The creator explains that cutting shapes is often grouped with shuffling, but started as its own thing and grew alongside traditional Melbourne shuffling.',
     focus: [
-      'Cutting shapes is the lighter, more technical style, popular at EDM festivals.',
-      'Watch first, then try the ideas in the next lesson.',
+      'Watch it first for context, then move on to the longer tutorials in this level.',
     ],
   },
   {
@@ -268,11 +286,12 @@ export const lessons: Lesson[] = [
     videoId: 'OhG8r1gXFiY',
     channel: 'Emylee x The Shuffle Vault',
     minutes: 23,
-    summary: 'A beginner-oriented cutting shapes tutorial. Plan a full session.',
+    summary: 'Covers how cutting shapes differs from shuffling, then teaches the Charleston, diamond / criss cross, V-step / happy feet and X-step / Polly Pocket.',
     focus: [
-      'Move slowly and focus on clean foot placement.',
-      'Combine new cutting shapes moves with the running man and T-step you already know.',
+      'Spend most of your time on the Charleston, which takes the longest in this video.',
+      'Plan two days: the Charleston first, then the other steps.',
     ],
+    chapters: ['0:28 Cutting shapes vs shuffling', '1:20 The Charleston', '7:12 Diamond / criss cross', '9:56 V-step / happy feet', '13:24 X-step / Polly Pocket'],
   },
   {
     slug: 'charleston-beginner',
@@ -281,11 +300,12 @@ export const lessons: Lesson[] = [
     videoId: '4YhzRZDatn8',
     channel: 'Marbiik',
     minutes: 7,
-    summary: 'The Charleston is a classic cutting shapes move. Learn it step by step.',
+    summary: 'The Charleston, a basic cutting shapes step. It starts with a semicircle drill before the step itself.',
     focus: [
-      'Practice at half speed first.',
-      'Add the Charleston into your running man loop.',
+      'Do the semicircle first. It is the lead-in to the Charleston.',
+      'Practice at half speed until it is smooth.',
     ],
+    chapters: ['0:14 Semicircle', '2:25 Charleston'],
   },
   {
     slug: 'cutting-shapes-quick',
@@ -294,23 +314,25 @@ export const lessons: Lesson[] = [
     videoId: 'xSx8nM4DFOE',
     channel: 'How to Dance',
     minutes: 3,
-    summary: 'A quick refresher you can replay as a warm-up.',
-    focus: ['Use it as a warm-up before practicing the longer lessons.'],
+    summary: 'A very short cutting shapes tutorial. The lesson itself is about two minutes long.',
+    focus: ['Use it as a quick refresher or warm-up before the longer lessons.'],
+    chapters: ['0:21 Tutorial'],
   },
 
   // Level 4
   {
     slug: 'shuffle-transitions',
     level: 'flow-routine',
-    title: 'Shuffle Transitions: Steps, Kicks and More',
+    title: 'Shuffle Transitions: Steps, Kicks and Combos',
     videoId: '8eKQTRG4-q4',
     channel: 'Emylee x The Shuffle Vault',
     minutes: 19,
-    summary: 'Transitions glue separate moves together. This is what makes your dancing look continuous.',
+    summary: 'Ways to get from one move to the next: glide, T-step, and kick and turn transitions, ending in advanced kick combinations and a final combo.',
     focus: [
-      'Pick two moves you know and practice only the connection between them.',
+      'Pick one transition per session and practice it between two moves you already know.',
       'Slow it down until the switch feels effortless.',
     ],
+    chapters: ['1:00 Foundation and basic movement', '2:42 The reverse running man', '4:49 Stomping forward', '6:32 Glide transitions', '8:29 T-step transitions', '11:06 Kick and turn transitions', '14:07 Advanced kick combinations', '16:05 Final combo'],
   },
   {
     slug: 'footwork-creativity',
@@ -319,37 +341,40 @@ export const lessons: Lesson[] = [
     videoId: 'lXHjxJ5kTzs',
     channel: 'Marbiik',
     minutes: 7,
-    summary: 'Ideas for making your own footwork. Start personalizing your dancing.',
+    summary: 'How to build your own footwork patterns from five T-steps, change orientation, and fit the patterns into routines.',
     focus: [
-      'Mix moves you know in new orders.',
+      'Make your own pattern from the five T-steps, then repeat it until it flows.',
       'Record yourself and keep the parts you like.',
     ],
+    chapters: ['0:55 Creating custom patterns', '1:37 Executing the five T-steps', '2:38 Adding orientation shifts', '3:50 Integrating into routines', '4:56 Pattern practice and tips'],
   },
   {
     slug: 'festival-season-level-up',
     level: 'flow-routine',
-    title: 'Level Up for Festival Season',
+    title: 'Level Up for Festival Season with this Shuffle Combo',
     videoId: 'C33XxmVKT1U',
     channel: 'Emylee x The Shuffle Vault',
     minutes: 15,
-    summary: 'Intermediate material to prepare for dancing at a festival.',
+    summary: 'An intermediate combo built from the T-step and switch, the reverse T-step and a crescent glide transition, with a music practice section at the end.',
     focus: [
-      'Practice with a full-length song.',
-      'Keep your energy steady from start to finish.',
+      'Learn the parts first, then follow the full combo walkthrough.',
+      'Practice with music and try mirroring the combo to the other side.',
     ],
+    chapters: ['0:34 T-step and switch basics', '1:35 Reverse T-step technique', '3:50 Crescent glide transition', '7:32 Full combo walkthrough', '9:22 Practice with music', '10:22 Mirroring the combo'],
   },
   {
     slug: 'easy-shuffle-choreo',
     level: 'flow-routine',
-    title: 'Learn this Easy Shuffle Choreo',
+    title: 'Learn this Easy Shuffle Choreo (Shades by Tchami)',
     videoId: '9h6YaTKPFTE',
     channel: 'Emylee x The Shuffle Vault',
     minutes: 9,
-    summary: 'A short choreography to put everything together to music.',
+    summary: 'A beginner choreography for people who are unsure how to combine their moves: a ski running man, a T-step and glide, then the full combo.',
     focus: [
-      'Learn it in sections, then run the whole thing.',
+      'Learn it in two parts, then run the full combo.',
       'Film a final take to see how far you have come.',
     ],
+    chapters: ['1:01 Ski running man', '3:24 T-step and glide', '6:09 Full combo walkthrough'],
   },
 
   // Melbourne
@@ -360,22 +385,23 @@ export const lessons: Lesson[] = [
     videoId: 'rrbUkYmOKL0',
     channel: 'Abby Castro',
     minutes: 7,
-    summary: 'An introduction to the Melbourne shuffle basics.',
+    summary: 'A quick Melbourne shuffle tutorial: running man, T-step, rock, combining the basics, sliding techniques and practice to music.',
     focus: [
-      'Compare the feel with the cutting shapes lessons.',
-      'Try it to a faster, harder track.',
+      'The moves overlap with Level 1, so this one should feel familiar.',
+      'Finish with the music practice section.',
     ],
+    chapters: ['0:34 The running man', '1:30 The T-step', '2:38 Incorporating rock', '3:10 Combining basic moves', '3:40 Sliding techniques', '4:31 Music practice'],
   },
   {
     slug: 'hardstyle-shuffle-tutorial',
     level: 'melbourne',
-    title: 'How to Hardstyle Shuffle Tutorial',
+    title: 'How to Hardstyle Shuffle Tutorial (2010)',
     videoId: 'AAY5J5bwRDU',
     channel: 'YoAlanKun',
     minutes: 8,
-    summary: 'An older but widely watched hardstyle shuffle tutorial (from 2010).',
+    summary: 'An older hardstyle shuffle tutorial. The creator says he made it because most Melbourne shuffle and hardstyle tutorials at the time were poor quality.',
     focus: [
-      'The video is older, so expect a different look to the moves.',
+      'The video is from 2010, so expect a different look and style from the newer videos.',
       'Practice the core steps until they are steady.',
     ],
   },
@@ -386,11 +412,12 @@ export const lessons: Lesson[] = [
     videoId: 'BRpGh9L-nBc',
     channel: 'JustAPhysicist',
     minutes: 16,
-    summary: 'A longer walkthrough that goes from the basics to more advanced Melbourne shuffle moves.',
+    summary: 'Covers the running man, T-step, transitioning, spinning, gliding and the reverse step, in basic and advanced sections.',
     focus: [
-      'Spend the first session on the basics only.',
-      'Come back for the advanced parts once the basics feel steady.',
+      'Spend the first session on the basic moves (0:00 to 7:05).',
+      'Come back for the advanced moves and the full combination another day.',
     ],
+    chapters: ['0:00 Basic shuffling moves', '7:05 Advanced shuffling moves', '12:58 Putting it all together'],
   },
   {
     slug: 'best-melbourne-tutorial',
