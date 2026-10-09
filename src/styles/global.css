@@ -159,6 +159,10 @@ a.card:hover { transform: translateY(-3px); border-color: var(--pink); }
 .hl-card[hidden] { display: none; }
 .hl-card .player.short { max-width: 100%; }
 
+.more { padding: 8px 0 8px; }
+.more h2 { font-size: 1.3rem; }
+.more .grid { margin-top: 14px; }
+
 .section { padding: 28px 0; }
 .note { font-size: .85rem; color: var(--muted); }
 .site-footer { border-top: 1px solid var(--line); padding: 24px 0 32px; color: var(--muted); font-size: .85rem; }

@@ -1,7 +1,7 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import VideoPlayer from '../../components/VideoPlayer.astro';
-import { lessons } from '../../data/content';
+import { lessons, moreOf } from '../../data/content';
 import { levelOf, levelLabel, neighbors, sessionPlan, thumb, url, absoluteUrl, orderedLessons } from '../../lib/helpers';
 
 export function getStaticPaths() {
@@ -12,6 +12,7 @@ const { lesson } = Astro.props;
 const level = levelOf(lesson);
 const { prev, next } = neighbors(lesson);
 const plan = sessionPlan(lesson.minutes);
+const more = moreOf(lesson.slug);
 const number = orderedLessons.findIndex((l) => l.slug === lesson.slug) + 1;
 
 const jsonLd = [
@@ -87,6 +88,27 @@ const jsonLd = [
         </p>
       </div>
     </div>
+
+    {more.length > 0 && (
+      <section aria-labelledby="more-h" class="more">
+        <h2 id="more-h">More tutorials on this topic</h2>
+        <p class="note">Same topic, different teachers. If the main video does not click, try another explanation.</p>
+        <div class="grid three">
+          {more.map((v) => (
+            <article class="card hl-card">
+              <VideoPlayer videoId={v.videoId} title={v.title} />
+              <div class="info">
+                <h3>{v.title}</h3>
+                <p class="note" style="margin: 0;">
+                  {v.channel} · {v.minutes} min ·
+                  <a href={`https://www.youtube.com/watch?v=${v.videoId}`} target="_blank" rel="noopener">YouTube</a>
+                </p>
+              </div>
+            </article>
+          ))}
+        </div>
+      </section>
+    )}
 
     <div class="pager">
       {prev ? <a class="btn alt" href={url(`lessons/${prev.slug}/`)}>← Previous</a> : <span />}

@@ -379,7 +379,114 @@ export const lessons: Lesson[] = [
       'Practice the core steps until they are steady.',
     ],
   },
+  {
+    slug: 'melbourne-basics-and-advanced',
+    level: 'melbourne',
+    title: 'How to Do the Melbourne Shuffle: Basics and Advanced',
+    videoId: 'BRpGh9L-nBc',
+    channel: 'JustAPhysicist',
+    minutes: 16,
+    summary: 'A longer walkthrough that goes from the basics to more advanced Melbourne shuffle moves.',
+    focus: [
+      'Spend the first session on the basics only.',
+      'Come back for the advanced parts once the basics feel steady.',
+    ],
+  },
+  {
+    slug: 'best-melbourne-tutorial',
+    level: 'melbourne',
+    title: 'The Best Melbourne Shuffle Tutorial Ever',
+    videoId: 'Yoolneu0twk',
+    channel: 'FRANCIS VO',
+    minutes: 10,
+    summary: 'Another Melbourne shuffle tutorial to round out the track.',
+    focus: [
+      'Compare it with the earlier Melbourne lessons and keep what works for you.',
+      'Practice the moves to a faster, harder track.',
+    ],
+  },
 ];
+
+// Extra tutorials from other creators, shown under each lesson's main video.
+// Lengths are rounded up to whole minutes.
+export interface ExtraVideo {
+  videoId: string;
+  title: string;
+  channel: string;
+  minutes: number;
+}
+
+const X = {
+  jchangtime: { videoId: 'J35OLTyr0YI', title: 'How to Shuffle Dance (Best Tutorial Ever)', channel: 'JCHangtime', minutes: 11 },
+  mavis: { videoId: 'v-fsbZ5VgTU', title: 'How to Shuffle: Getting Up to Speed', channel: 'Mavis Everett', minutes: 3 },
+  catsKilos: { videoId: 'W5oHDTBbg58', title: 'Shuffle Dance Tutorial for Beginners: An Easy T-Step', channel: 'Cats and Kilos', minutes: 5 },
+  tuzelity3: { videoId: 'RFOpdD5zuKs', title: '3 Easy Shuffle Steps', channel: 'tuzelity SHUFFLE', minutes: 2 },
+  rm2min: { videoId: 'k22Bm2pMyD4', title: 'Running Man: Learn in 2 Minutes', channel: 'Jayden Rodrigues', minutes: 3 },
+  rmDncr: { videoId: 'ZpTgAZBYNrU', title: 'How to Do the Running Man (Beginner)', channel: 'DNCR Dance Tutorials', minutes: 5 },
+  rmZanouji: { videoId: 'WymXz-1JJQc', title: 'Running Man Lesson (Dancerush Stardom)', channel: 'Zanouji', minutes: 2 },
+  rm3types: { videoId: 'SfM49r6gX0g', title: '3 Types of Running Man', channel: 'Shuffle Dance Academy', minutes: 9 },
+  rmTips: { videoId: 'MRjzecRlVGc', title: 'Tips to Improve Your Running Man', channel: 'Emylee x The Shuffle Vault', minutes: 15 },
+  rmTstep: { videoId: 'FW79-ldvYag', title: 'Running Man & T-Step for Beginners', channel: 'CykoMelody', minutes: 13 },
+  tDncr: { videoId: 'P9HIwHoLc2Q', title: 'Beginner Shuffle Dance Tutorial (T-Step)', channel: 'DNCR Dance Tutorials', minutes: 3 },
+  tCaroline: { videoId: 'jSfFnJWCuR4', title: 'T-Step Shuffle Tutorial (Series 2/5)', channel: 'Caroline Kay', minutes: 9 },
+  tNatalia: { videoId: 'iWnWiYe2HiE', title: 'Beginner T-Step Shuffle Dance Tutorial, Step by Step', channel: 'Natalia & Waffles', minutes: 7 },
+  tShufflea: { videoId: 'IoZEKPE2Ins', title: 'Shuffle Tutorial 3/7: T Step', channel: 'Shufflea', minutes: 2 },
+  tKento: { videoId: 'xOmEkqD2oOY', title: 'Day 2 of 10: T-Step', channel: 'Kento Moriguchi', minutes: 19 },
+  moves47: { videoId: 'p2JrE6JICKk', title: '47 Shuffle Dance Moves in 3 Minutes', channel: 'Zanouji', minutes: 4 },
+  combos2: { videoId: 'QW1RF8eurBY', title: '2 Favorite Shuffle Combos to Add to Your Flow', channel: 'Emylee x The Shuffle Vault', minutes: 15 },
+  levelUpTransition: { videoId: 'ScpHFFbyzms', title: 'Shuffle Step Level Up: Top Rock Transitions', channel: 'Pie Chien Teddie', minutes: 5 },
+  csHarrison: { videoId: 'mb-nLc0Lrp8', title: 'Cutting Shapes Beginner Tutorial #1', channel: 'Harrison', minutes: 6 },
+  csGetDance: { videoId: 'gQU0vqVD87Y', title: 'Cutting Shapes: 3 Moves for Beginners', channel: 'Get Dance', minutes: 5 },
+  csWillyG: { videoId: 'vvocT-g31Zc', title: 'Cutting Shapes Basic/Advanced Tutorial', channel: 'WillyGee 123', minutes: 5 },
+  csGina: { videoId: 'wvp7aSdaVTc', title: 'How to Cut Shapes for Beginners', channel: 'Gina Rego', minutes: 13 },
+  csKento: { videoId: 'f8fozVcwUH8', title: 'Cutting Shapes Combo Tutorial', channel: 'Kento Moriguchi', minutes: 8 },
+  charlAcademy: { videoId: '30lGUtZvhs4', title: 'Charleston Shuffle Dance Tutorial', channel: 'Shuffle Dance Academy', minutes: 12 },
+  charlDncr: { videoId: 'bBz0DE7liKY', title: 'Beginner Shuffle Dance Tutorial (The Charleston)', channel: 'DNCR Dance Tutorials', minutes: 3 },
+  sofia: { videoId: 'foNMb_LjnNU', title: 'How to Shuffle / Cutting Shapes: Running Man and Polly Pocket', channel: 'SOFÍA', minutes: 2 },
+  transMarbiik: { videoId: 'PrADhgIAMfA', title: 'Basic Shuffle Transitions', channel: 'Marbiik', minutes: 17 },
+  transEmylee: { videoId: 'VWZMOD9CiQo', title: 'Transitions, Cutting Shapes, Spins', channel: 'Emylee x The Shuffle Vault', minutes: 12 },
+  freestyle: { videoId: 'PLStwju8i-Y', title: 'A Freestyling Guide for Shufflers: How to Enter a Flow', channel: 'Emylee x The Shuffle Vault', minutes: 9 },
+  melbPhysicist: { videoId: 'BRpGh9L-nBc', title: 'How to Do the Melbourne Shuffle: Basics and Advanced', channel: 'JustAPhysicist', minutes: 16 },
+  melbKnee: { videoId: 'Zpjh77rXENQ', title: 'Melbourne Shuffle Tutorial', channel: 'KneeCole76', minutes: 4 },
+  melbFrancis: { videoId: 'Yoolneu0twk', title: 'The Best Melbourne Shuffle Tutorial Ever', channel: 'FRANCIS VO', minutes: 10 },
+  hardKeven: { videoId: '4pdoAqLnTkQ', title: 'Shuffle Tutorial of Hardstyle', channel: 'Keven Hernandez', minutes: 8 },
+  melbSagames: { videoId: 'oB8-b7YO9CM', title: 'Melbourne Shuffle Tutorial, Part 1', channel: 'Sagames Psnstore', minutes: 8 },
+  hardSports: { videoId: '07KjROB0gUc', title: 'How to Do the Hardstyle Shuffle', channel: 'Sports and Fitness', minutes: 4 },
+  melbSpin: { videoId: 'mgGyaeWYvjM', title: 'Melbourne Shuffle Spin Tutorial & Kick Tip', channel: 'T0ny', minutes: 6 },
+  ausBasics: { videoId: 'Kni3KUAaIIQ', title: 'Aus Style Tutorial: Basics and Foundation', channel: 'Souffley Man', minutes: 8 },
+  aus2019: { videoId: 'slE9fOB99Hk', title: 'Aus Style Tutorial 2019 (Melbourne Shuffle)', channel: 'Souffley Man', minutes: 6 },
+};
+
+const moreVideos: Record<string, ExtraVideo[]> = {
+  'beginner-full-tutorial': [X.jchangtime, X.mavis],
+  'ultimate-beginner-tutorial': [X.catsKilos, X.tuzelity3],
+  'learn-to-shuffle-in-5-minutes': [X.jchangtime, X.tuzelity3],
+  'shuffle-basics-running-man': [X.rm2min, X.rmDncr, X.rmZanouji],
+  'running-man-marbiik': [X.rm3types, X.rm2min, X.rmDncr],
+  't-step-marbiik': [X.tDncr, X.tCaroline, X.tNatalia, X.tShufflea],
+  'easiest-running-man': [X.rm3types, X.rmZanouji, X.rmTips],
+  'foundations-running-man-t-step': [X.rmTstep, X.tKento, X.rmTips],
+  'first-5-moves': [X.moves47, X.tuzelity3, X.jchangtime],
+  '5-easy-footwork-steps': [X.moves47, X.tuzelity3],
+  'beginner-class-video': [X.jchangtime, X.catsKilos],
+  'effortless-flow-combo': [X.combos2, X.levelUpTransition, X.moves47],
+  'everything-about-cutting-shapes': [X.csHarrison, X.csGetDance, X.csWillyG],
+  'cutting-shapes-tutorial-beginner': [X.csGina, X.csHarrison, X.csKento],
+  'charleston-beginner': [X.charlAcademy, X.charlDncr, X.sofia],
+  'cutting-shapes-quick': [X.csGetDance, X.csWillyG, X.csHarrison],
+  'shuffle-transitions': [X.transMarbiik, X.transEmylee, X.levelUpTransition],
+  'footwork-creativity': [X.freestyle, X.levelUpTransition],
+  'festival-season-level-up': [X.combos2, X.freestyle, X.csKento],
+  'easy-shuffle-choreo': [X.combos2, X.freestyle],
+  'basic-melbourne-shuffle': [X.melbKnee, X.hardKeven, X.hardSports],
+  'hardstyle-shuffle-tutorial': [X.melbSagames, X.aus2019, X.melbSpin],
+  'melbourne-basics-and-advanced': [X.ausBasics, X.melbKnee],
+  'best-melbourne-tutorial': [X.melbSagames, X.melbSpin],
+};
+
+export function moreOf(slug: string): ExtraVideo[] {
+  return moreVideos[slug] ?? [];
+}
 
 export type Style = 'melbourne' | 'cutting-shapes' | 'general';
 
