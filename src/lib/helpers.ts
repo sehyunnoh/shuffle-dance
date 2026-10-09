@@ -14,6 +14,14 @@ export function absoluteUrl(path = ''): string {
   return `${site}${url(path)}`;
 }
 
+/** Shorten text to at most `max` characters at a word boundary, adding an ellipsis if cut. */
+export function clip(text: string, max: number): string {
+  if (text.length <= max) return text;
+  const cut = text.slice(0, max - 1);
+  const lastSpace = cut.lastIndexOf(' ');
+  return `${(lastSpace > max * 0.6 ? cut.slice(0, lastSpace) : cut).replace(/[\s,;:.\-|]+$/, '')}…`;
+}
+
 export const mainLevels = levels.filter((l) => l.track === 'main');
 export const melbourneLevel = levels.find((l) => l.track === 'melbourne')!;
 

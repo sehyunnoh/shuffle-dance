@@ -1,6 +1,6 @@
 ---
 import '../styles/global.css';
-import { SITE_NAME, url, absoluteUrl, orderedLessons } from '../lib/helpers';
+import { SITE_NAME, url, absoluteUrl, orderedLessons, clip } from '../lib/helpers';
 
 interface Props {
   title: string;
@@ -11,9 +11,13 @@ interface Props {
   noindex?: boolean;
 }
 
-const { title, description, path, image, jsonLd = [], noindex = false } = Astro.props;
-const fullTitle = path === '' ? title : `${title} | ${SITE_NAME}`;
+const { title, description: rawDescription, path, image, jsonLd = [], noindex = false } = Astro.props;
+// Keep titles under ~60 characters and descriptions under ~160 so search results don't cut them off.
+const suffix = ` | ${SITE_NAME}`;
+const fullTitle = path === '' ? clip(title, 60) : `${clip(title, 60 - suffix.length)}${suffix}`;
+const description = clip(rawDescription, 158);
 const canonical = absoluteUrl(path);
+const ogImage = image ?? absoluteUrl('og-default.png');
 const current = Astro.url.pathname;
 const isActive = (p: string) => {
   const target = url(p);
@@ -36,18 +40,20 @@ const nav = [
     <meta name="description" content={description} />
     <link rel="canonical" href={canonical} />
     <link rel="icon" href={url('favicon.svg')} type="image/svg+xml" />
-    {noindex && <meta name="robots" content="noindex" />}
+    <link rel="apple-touch-icon" href={url('apple-touch-icon.png')} />
+    <meta name="robots" content={noindex ? 'noindex' : 'index, follow, max-image-preview:large'} />
 
     <meta property="og:type" content="website" />
+    <meta property="og:locale" content="en_US" />
     <meta property="og:site_name" content={SITE_NAME} />
     <meta property="og:title" content={fullTitle} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonical} />
-    {image && <meta property="og:image" content={image} />}
-    <meta name="twitter:card" content={image ? 'summary_large_image' : 'summary'} />
+    <meta property="og:image" content={ogImage} />
+    <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={fullTitle} />
     <meta name="twitter:description" content={description} />
-    {image && <meta name="twitter:image" content={image} />}
+    <meta name="twitter:image" content={ogImage} />
 
     {jsonLd.map((data) => <script type="application/ld+json" set:html={JSON.stringify(data)} />)}
   </head>
@@ -69,8 +75,7 @@ const nav = [
       <div class="wrap">
         <p>
           Shuffle Lab is a free practice guide. All videos belong to their creators and play from YouTube.
-          View counts were collected on 2026-10-09. Visits are counted with cookie-free analytics.
-        </p>
+          View counts were collected on 2026-10-09.        </p>
       </div>
     </footer>
 
