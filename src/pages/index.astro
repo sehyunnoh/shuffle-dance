@@ -1,0 +1,82 @@
+---
+import Layout from '../layouts/Layout.astro';
+import ProgressBar from '../components/ProgressBar.astro';
+import { mainLevels, melbourneLevel, lessonsOf, orderedLessons, url, absoluteUrl, SITE_NAME } from '../lib/helpers';
+
+const first = orderedLessons[0];
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    name: SITE_NAME,
+    url: absoluteUrl(''),
+    description: 'A free, step-by-step shuffle dance practice plan for beginners, built from the best YouTube tutorials.',
+    inLanguage: 'en',
+  },
+];
+---
+
+<Layout
+  title="Learn to Shuffle Dance: A Step-by-Step Plan for Beginners"
+  description="Learn shuffle dance from zero. Follow a level-by-level plan of the best YouTube tutorials for the running man, T-step and cutting shapes, in 30 minutes a day."
+  path=""
+  jsonLd={jsonLd}
+>
+  <div class="wrap">
+    <section class="hero">
+      <span class="eyebrow">30 minutes a day</span>
+      <h1>Learn to <span class="grad">shuffle</span><br />from zero.</h1>
+      <p class="lead">
+        Stop wondering which video to watch first. Follow five levels of hand-picked tutorials, from the running man
+        to your first routine.
+      </p>
+      <div class="actions">
+        <a class="btn" href={url(`lessons/${first.slug}/`)} data-continue data-continue-base={url('')}>Start Lesson 1</a>
+        <a class="btn alt" href={url('highlights/')}>Get inspired 🔥</a>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="levels-h">
+      <h2 id="levels-h">Your path</h2>
+      <div class="grid">
+        {mainLevels.map((lv) => (
+          <a class="card" href={url(`levels/${lv.id}/`)}>
+            <div class="num">{lv.number}</div>
+            <h3>{lv.name}</h3>
+            <p class="muted">{lv.tagline}</p>
+            <ProgressBar slugs={lessonsOf(lv.id).map((l) => l.slug)} />
+          </a>
+        ))}
+        <a class="card" href={url(`levels/${melbourneLevel.id}/`)}>
+          <div class="num">★</div>
+          <h3>{melbourneLevel.name}</h3>
+          <p class="muted">{melbourneLevel.tagline}</p>
+          <ProgressBar slugs={lessonsOf(melbourneLevel.id).map((l) => l.slug)} />
+        </a>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="how-h">
+      <h2 id="how-h">How a session works</h2>
+      <div class="plan panel" style="grid-template-columns: repeat(3, 1fr);">
+        <div><strong>5</strong><span>min warm-up</span></div>
+        <div><strong>10</strong><span>min watch</span></div>
+        <div><strong>15</strong><span>min practice</span></div>
+      </div>
+      <p class="note">
+        Your progress is saved in this browser only. No sign-up, no account.
+      </p>
+    </section>
+
+    <section class="section" aria-labelledby="need-h">
+      <h2 id="need-h">What you need</h2>
+      <div class="panel">
+        <ul>
+          <li>A small clear space and a mirror, if you have one.</li>
+          <li>Shoes with soles that slide easily on your floor.</li>
+          <li>House or EDM music at 120 to 128 BPM to start.</li>
+        </ul>
+      </div>
+    </section>
+  </div>
+</Layout>

@@ -1,0 +1,11 @@
+---
+interface Props {
+  slugs: string[];
+}
+const { slugs } = Astro.props;
+---
+
+<div class="progress" data-progress-lessons={slugs.join(',')}>
+  <div class="track"><div class="js-bar"></div></div>
+  <span class="js-text">0/{slugs.length} done</span>
+</div>

@@ -1,0 +1,14 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { url } from '../lib/helpers';
+---
+
+<Layout title="Page not found" description="This page could not be found." path="404.html" noindex>
+  <div class="wrap">
+    <section class="hero">
+      <h1>Missed a <span class="grad">step</span></h1>
+      <p class="lead">That page does not exist. Let's get you back on the dance floor.</p>
+      <div class="actions"><a class="btn" href={url('')}>Back to home</a></div>
+    </section>
+  </div>
+</Layout>

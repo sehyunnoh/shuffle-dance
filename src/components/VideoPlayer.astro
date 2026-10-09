@@ -1,0 +1,40 @@
+---
+import { thumb } from '../lib/helpers';
+
+interface Props {
+  videoId: string;
+  title: string;
+  short?: boolean;
+  start?: number;
+  end?: number;
+}
+const { videoId, title, short = false, start, end } = Astro.props;
+---
+
+<!-- Lite embed: only the thumbnail loads up front. The iframe is created on click. -->
+<div class={`player${short ? ' short' : ''}`} data-video-id={videoId} data-start={start} data-end={end} data-title={title}>
+  <img src={thumb(videoId)} alt="" loading="lazy" />
+  <button class="play" type="button" aria-label={`Play video: ${title}`}>
+    <span class="play-ico" aria-hidden="true">▶</span>
+  </button>
+  <noscript>
+    <a href={`https://www.youtube.com/watch?v=${videoId}`}>Watch on YouTube</a>
+  </noscript>
+</div>
+
+<script>
+  document.addEventListener('click', (e) => {
+    const btn = (e.target as HTMLElement).closest<HTMLButtonElement>('.player > button.play');
+    if (!btn) return;
+    const box = btn.parentElement as HTMLElement;
+    const params = new URLSearchParams({ autoplay: '1', rel: '0', playsinline: '1', modestbranding: '1' });
+    if (box.dataset.start) params.set('start', box.dataset.start);
+    if (box.dataset.end) params.set('end', box.dataset.end);
+    const iframe = document.createElement('iframe');
+    iframe.src = `https://www.youtube-nocookie.com/embed/${box.dataset.videoId}?${params}`;
+    iframe.title = box.dataset.title || 'YouTube video';
+    iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
+    iframe.allowFullscreen = true;
+    box.replaceChildren(iframe);
+  });
+</script>
