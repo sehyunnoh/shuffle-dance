@@ -393,27 +393,34 @@ export interface Highlight {
   blurb: string;
 }
 
+// Highlights are for motivation: performances, freestyle and cool moves. Tutorials belong in lessons.
+// View counts come from YouTube search results on VIEWS_AS_OF and are rounded for the larger ones.
 export const highlights: Highlight[] = [
   // Full videos
-  { videoId: 'Ee2hKlGXrDs', title: 'Cutting Shapes vs Melbourne Shuffle', channel: 'Boosted Society', views: 3_350_830, style: 'general', isShort: false, blurb: 'A side-by-side look at the two big styles.' },
-  { videoId: 'XgDNAO2IDjE', title: '2015 Melbourne Shuffle Compilation', channel: 'HardStyleNation', views: 2_252_202, style: 'melbourne', isShort: false, blurb: 'A compilation of Melbourne shuffle dancers.' },
-  { videoId: 'XDuIrqcRdpc', title: 'How 7 Years of Shuffling Changed Me', channel: 'Emylee x The Shuffle Vault', views: 1_446_948, style: 'general', isShort: false, blurb: 'A story about progress over seven years. Perfect when you need motivation.' },
-  { videoId: 'wcTiil8W1Nc', title: 'Festival Shuffle Compilation', channel: 'Marktore', views: 1_405_674, style: 'cutting-shapes', isShort: false, blurb: 'Shuffling on festival dance floors.' },
-  { videoId: '-HfcakYYaWY', title: 'Cutting Shapes: Renegade Master', channel: 'Aidan Queen', views: 1_121_379, style: 'cutting-shapes', isShort: false, blurb: 'A cutting shapes clip to a classic track.' },
-  { videoId: 'UmOifgmi3gg', title: '2021 Melbourne Shuffle Tournament', channel: 'HXSI shuffle', views: 679_772, style: 'melbourne', isShort: false, blurb: 'A clip from a Melbourne shuffle tournament.' },
-  { videoId: 's6MiKJSWbzI', title: 'I Spent 8 Years Shuffling', channel: 'Emylee x The Shuffle Vault', views: 278_448, style: 'general', isShort: false, blurb: 'Lessons from eight years of shuffling.' },
-  { videoId: '_V0RRfA7EEw', title: 'Top 5 Shuffling Videos of 2021', channel: 'Emylee x The Shuffle Vault', views: 260_041, style: 'general', isShort: false, blurb: 'A look at standout shuffling videos from 2021.' },
+  { videoId: 'ZPaMdxC6CQI', title: 'Melbourne Shuffle Compilation 3', channel: 'jack40k', views: 42_260_000, style: 'melbourne', isShort: false, blurb: 'A compilation of Melbourne shuffle dancers.' },
+  { videoId: 'nmXT-cC5op4', title: 'Shuffle Performance (Choreography)', channel: 'Morlokx', views: 4_460_000, style: 'general', isShort: false, blurb: 'A choreographed shuffle performance.' },
+  { videoId: 'Ee2hKlGXrDs', title: 'Cutting Shapes vs Melbourne Shuffle vs Jumpstyle', channel: 'Boosted Society', views: 3_350_830, style: 'general', isShort: false, blurb: 'A side-by-side look at the big styles.' },
+  { videoId: '8k5WtNRlBcE', title: 'Melbourne Shuffle Compilation', channel: 'jack40k', views: 2_190_000, style: 'melbourne', isShort: false, blurb: 'More Melbourne shuffle from the same channel.' },
+  { videoId: 'XgDNAO2IDjE', title: '2015 Melbourne Shuffle Compilation Mix 3', channel: 'HardStyleNation', views: 2_252_202, style: 'melbourne', isShort: false, blurb: 'Melbourne shuffle at hardstyle events.' },
+  { videoId: 'S9gdrP4PWnI', title: 'Cutting Shapes | Shuffle Dance Choreography', channel: 'Женя Локтев', views: 1_720_000, style: 'cutting-shapes', isShort: false, blurb: 'A cutting shapes choreography.' },
+  { videoId: 'L_ffF-weExs', title: 'Cutting Shapes Compilation #4 [House Shuffle]', channel: 'Marktore', views: 1_710_000, style: 'cutting-shapes', isShort: false, blurb: 'House-music cutting shapes from many dancers.' },
+  { videoId: 'XDuIrqcRdpc', title: 'How 7 Years of Shuffling Changed Me', channel: 'Emylee x The Shuffle Vault', views: 1_446_948, style: 'general', isShort: false, blurb: 'Seven years of progress. Great when you need a push.' },
+  { videoId: 'wcTiil8W1Nc', title: 'Festival Shuffle Compilation [Cutting Shapes]', channel: 'Marktore', views: 1_405_674, style: 'cutting-shapes', isShort: false, blurb: 'Shuffling on festival dance floors.' },
+  { videoId: '-HfcakYYaWY', title: 'Cutting Shapes: Renegade Master', channel: 'Aidan Queen', views: 1_121_379, style: 'cutting-shapes', isShort: false, blurb: 'Cutting shapes to a classic track.' },
+  { videoId: 'UmOifgmi3gg', title: '2021 Melbourne Shuffle Tournament', channel: 'HXSI shuffle', views: 679_772, style: 'melbourne', isShort: false, blurb: 'A clip from a Melbourne shuffle tournament in Guangzhou.' },
+  { videoId: 'R2dSlYmYmHo', title: 'Cutting Shapes / Techno Rave Shuffle Compilation', channel: 'Konijnendansjes NL', views: 580_000, style: 'cutting-shapes', isShort: false, blurb: 'Rave shuffle clips.' },
 
   // Shorts
-  { videoId: 'geIPPUQBUh8', title: 'Mini Shuffle Tutorial with Slow Motion', channel: 'Vanessa Victoria (viva_vici)', views: 33_125_649, style: 'general', isShort: true, blurb: 'A very quick slow-motion look at a shuffle move.' },
-  { videoId: 'URTvDkfCE40', title: 'Shuffle Dance Tutorial p18', channel: 'PhonyFamous', views: 21_135_647, style: 'general', isShort: true, blurb: 'A short tutorial clip.' },
-  { videoId: 'iaKObRWbkvw', title: 'Shuffle Dance Tutorial', channel: 'Dance Fitness with An Le', views: 16_317_558, style: 'general', isShort: true, blurb: 'A short tutorial clip.' },
-  { videoId: 'esGZTeb_AiM', title: 'Easy Shuffle Move for Beginners', channel: 'Simple Weekend', views: 13_782_910, style: 'general', isShort: true, blurb: 'A beginner-friendly short.' },
-  { videoId: 'IYm-n-vwhnw', title: "World's Biggest Running Man Challenge", channel: 'tuzelity SHUFFLE', views: 12_716_780, style: 'general', isShort: true, blurb: 'The running man, shared by thousands.' },
-  { videoId: 'B8YiMaPKK8E', title: 'Polly Pocket Shuffle Dance Tutorial', channel: 'Shuffling Studio', views: 7_614_974, style: 'cutting-shapes', isShort: true, blurb: 'A short on the popular Polly Pocket move.' },
-  { videoId: 'RVIsSRa_FAE', title: 'Spongebob Shuffle Tutorial', channel: 'Zanouji', views: 3_820_106, style: 'general', isShort: true, blurb: 'A short tutorial clip.' },
-  { videoId: 'qR_itaRdwMc', title: 'Criss Cross Tutorial', channel: 'Shuffle Academy', views: 2_434_089, style: 'cutting-shapes', isShort: true, blurb: 'A criss cross short.' },
-  { videoId: 'ckzBKoZdIpc', title: 'Quick Running Man Shuffle Dance Tutorial', channel: 'Shuffling Studio', views: 1_428_427, style: 'cutting-shapes', isShort: true, blurb: 'A quick running man short.' },
-  { videoId: 'Saz4GuHpiUY', title: 'I Love This Cutting Shapes Combo', channel: 'Emylee x The Shuffle Vault', views: 282_111, style: 'cutting-shapes', isShort: true, blurb: 'A cutting shapes combo.' },
-  { videoId: 'MtDBW9WGszo', title: 'Cutting Shapes Combo from My Class', channel: 'Emylee x The Shuffle Vault', views: 226_704, style: 'cutting-shapes', isShort: true, blurb: 'A combo from a class.' },
+  { videoId: 'tHiD7QOgiBc', title: 'Clap Clap. Shuffle / Cutting Shapes', channel: 'SOFÍA', views: 39_000_000, style: 'cutting-shapes', isShort: true, blurb: 'Smooth cutting shapes.' },
+  { videoId: 'WyHFh0xWc7o', title: 'Shuffle Dance, but in Public at the LA Santa Monica Pier', channel: 'Erik Hu', views: 25_000_000, style: 'general', isShort: true, blurb: 'Shuffling in front of a real crowd.' },
+  { videoId: '3CwlB1U1uxM', title: 'Boney M. "Rasputin" but in Public', channel: 'Shuffolution', views: 20_000_000, style: 'cutting-shapes', isShort: true, blurb: 'Shuffling and cutting shapes in public.' },
+  { videoId: '_kY3hPOf3Vc', title: "Watch the Crowd's Reaction When Andy (51) Starts Shuffling", channel: 'Andy | Shuffle Dance', views: 17_000_000, style: 'general', isShort: true, blurb: 'Proof you are never too old to start.' },
+  { videoId: 'BF5i1bHlkyw', title: 'The Best Shuffle Dance for a Cloudy Day', channel: 'Simple Weekend', views: 6_500_000, style: 'general', isShort: true, blurb: 'A feel-good shuffle.' },
+  { videoId: '_zKCEBELz28', title: 'We Salute You! This Is for Those About to Rave', channel: 'Scooter', views: 5_600_000, style: 'general', isShort: true, blurb: 'Rave energy.' },
+  { videoId: 'zbd8lPOSW24', title: 'Rave Girl Festival Shuffle', channel: 'Mainset Music', views: 4_600_000, style: 'general', isShort: true, blurb: 'Festival shuffling.' },
+  { videoId: 'DWxa1FvOX8s', title: 'Rasputin Shuffle Dance', channel: 'Lizzie', views: 3_700_000, style: 'general', isShort: true, blurb: 'A duo dancing to Rasputin.' },
+  { videoId: 'WsxJsgYKrSE', title: 'Started Shuffling at 40 and Now 51 Owning the Dance Floor', channel: 'Andy | Shuffle Dance', views: 3_100_000, style: 'general', isShort: true, blurb: 'A late start, and still going strong.' },
+  { videoId: 'TXSGQR51Td4', title: 'Melbourne Shuffle', channel: 'IANROCKS', views: 2_900_000, style: 'melbourne', isShort: true, blurb: 'A short Melbourne shuffle clip.' },
+  { videoId: 'W-jKGWTthm8', title: 'Shuffle Dance / Cutting Shapes: Rasputin', channel: 'Ana Gum', views: 2_800_000, style: 'cutting-shapes', isShort: true, blurb: 'Cutting shapes to Rasputin.' },
+  { videoId: 'yG8-L69PO6E', title: 'Fast Cutting Shapes!', channel: 'Erika Gutierrez', views: 444_000, style: 'cutting-shapes', isShort: true, blurb: 'Fast, sharp footwork.' },
 ];
